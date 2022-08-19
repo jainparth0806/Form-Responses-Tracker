@@ -12,7 +12,7 @@ st.set_page_config(
 
 hide_streamlit_style = """
             <style>
-            
+            #MainMenu {visibility: hidden;}
             footer {visibility: hidden;}
             </style>
             """
@@ -131,14 +131,12 @@ if flag2==1:
                 col5, col6, = st.columns(2)
                 with col5:
                     st.markdown("<h4 '>Roll Number And Name</h4>", unsafe_allow_html=True)
-                    st.write(df3)
                     for i in Not_filled_list_Name:
                         # temp.append(res[i]+" "+i)
                         st.write(i+" "+res[i])
 
                 with col6:
                     st.markdown("<h4 >Email Ids</h4>", unsafe_allow_html=True)
-                    st.write(emailId_df)
                     for i in Not_filled_list_Name:
                         st.write(i.lower()+"@nirmauni.ac.in")
 
