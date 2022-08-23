@@ -1,5 +1,4 @@
 xsel
 xclip
-pyperclip
 gtk
 PyQt4
