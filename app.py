@@ -115,14 +115,14 @@ if flag2==1:
         
 
         
-                col3, col4, = st.columns(2)
-                with col3:
-                    if st.button('Copy to Clipboard Name & RollNo',key="xyz"):
-                        df3.to_clipboard(header=None)
+                # col3, col4, = st.columns(2)
+                # with col3:
+                #     if st.button('Copy to Clipboard Name & RollNo',key="xyz"):
+                #         df3.to_clipboard(header=None)
 
-                with col4:
-                    if st.button('Copy to Clipboard Email Id',key="xyz1"):
-                        emailId_df.to_clipboard(header=None, index=False)
+                # with col4:
+                #     if st.button('Copy to Clipboard Email Id',key="xyz1"):
+                #         emailId_df.to_clipboard(header=None, index=False)
                 
                     
 
