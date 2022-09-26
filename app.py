@@ -1,7 +1,6 @@
-import email
 import streamlit as st
 import pandas as pd
-import clipboard as c
+
 
 st.set_page_config(
     page_title='Form Responses Tracker',
@@ -114,28 +113,27 @@ if flag2==1:
                 # emailId_df=pd.DataFrame(Not_filled_list_Email)
                 # df3 = pd.DataFrame.from_dict(res, orient ='index')
         
-                emailId=""
-                Name_RollNo=""
-                for roll,name in res.items():
-                    Name_RollNo+=roll
-                    Name_RollNo+=" : "
-                    Name_RollNo+=name
-                    Name_RollNo+="\n"
+#                 emailId=""
+#                 Name_RollNo=""
+#                 for roll,name in res.items():
+#                     Name_RollNo+=roll
+#                     Name_RollNo+=" : "
+#                     Name_RollNo+=name
+#                     Name_RollNo+="\n"
 
-                for i in Not_filled_list_Email:
-                    emailId+=i
-                    emailId+=","
+#                 for i in Not_filled_list_Email:
+#                     emailId+=i
+#                     emailId+=","
         
-                col3, col4, = st.columns(2)
-                with col3:
-                    if st.button('Copy to Clipboard Name & RollNo',key="xyz"):
-                        c.copy(Name_RollNo)
-                        # df3.to_clipboard(header=None)
+#                 col3, col4, = st.columns(2)
+#                 with col3:
+#                     if st.button('Copy to Clipboard Name & RollNo',key="xyz"):
+#                         # df3.to_clipboard(header=None)
 
-                with col4:
-                    if st.button('Copy to Clipboard Email Id',key="xyz1"):
-                        c.copy(emailId)
-                        # emailId_df.to_clipboard(header=None, index=False)
+#                 with col4:
+#                     if st.button('Copy to Clipboard Email Id',key="xyz1"):
+#                         c.copy(emailId)
+#                         # emailId_df.to_clipboard(header=None, index=False)
                 
                     
 
