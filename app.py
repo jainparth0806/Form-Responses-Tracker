@@ -1,6 +1,7 @@
+import email
 import streamlit as st
 import pandas as pd
-
+import clipboard as c
 
 st.set_page_config(
     page_title='Form Responses Tracker',
@@ -88,13 +89,13 @@ if flag2==1:
                 filled,not_filled = 0,0
                 Not_filled_list_Name = []
                 Not_filled_list_Email = []
+                
                 Filled_list = []
                 for i in roll_no_master:
                     found = False
                     for j in roll_no_form:
                         j = j.strip()
                         if (i.upper())==(j.upper()):
-                            # Filled_list.append(i.upper())
                             filled = filled+1
                             found = True
                             break
@@ -106,23 +107,35 @@ if flag2==1:
                 st.write("Total Students",filled+not_filled)
                 st.write("Filled Count",filled)
                 st.write("Not Filled Count",not_filled)
-                # temp=[]
                 
+               
 
                 res = dict(zip(roll_no_master, name))
-                emailId_df=pd.DataFrame(Not_filled_list_Email)
-                df3 = pd.DataFrame.from_dict(res, orient ='index')
+                # emailId_df=pd.DataFrame(Not_filled_list_Email)
+                # df3 = pd.DataFrame.from_dict(res, orient ='index')
         
+                emailId=""
+                Name_RollNo=""
+                for roll,name in res.items():
+                    Name_RollNo+=roll
+                    Name_RollNo+=" : "
+                    Name_RollNo+=name
+                    Name_RollNo+="\n"
 
+                for i in Not_filled_list_Email:
+                    emailId+=i
+                    emailId+=","
         
-                # col3, col4, = st.columns(2)
-                # with col3:
-                #     if st.button('Copy to Clipboard Name & RollNo',key="xyz"):
-                #         df3.to_clipboard(header=None)
+                col3, col4, = st.columns(2)
+                with col3:
+                    if st.button('Copy to Clipboard Name & RollNo',key="xyz"):
+                        c.copy(Name_RollNo)
+                        # df3.to_clipboard(header=None)
 
-                # with col4:
-                #     if st.button('Copy to Clipboard Email Id',key="xyz1"):
-                #         emailId_df.to_clipboard(header=None, index=False)
+                with col4:
+                    if st.button('Copy to Clipboard Email Id',key="xyz1"):
+                        c.copy(emailId)
+                        # emailId_df.to_clipboard(header=None, index=False)
                 
                     
 
@@ -132,7 +145,6 @@ if flag2==1:
                 with col5:
                     st.markdown("<h4 '>Roll Number And Name</h4>", unsafe_allow_html=True)
                     for i in Not_filled_list_Name:
-                        # temp.append(res[i]+" "+i)
                         st.write(i+" "+res[i])
 
                 with col6:
